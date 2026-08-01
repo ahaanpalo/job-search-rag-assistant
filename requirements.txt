@@ -1,0 +1,10 @@
+﻿fastapi
+uvicorn[standard]
+langchain
+langchain-community
+pypdf
+chromadb
+sentence-transformers
+anthropic
+python-multipart
+python-dotenv
