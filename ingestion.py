@@ -1,11 +1,11 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from sentence_transformers import SentenceTransformer
+import voyageai
 import chromadb
 import uuid
 
-# Load the embedding model once (reused across calls)
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+# Set up Voyage AI client for embeddings
+voyage_client = voyageai.Client(api_key=os.getenv("VOYAGE_API_KEY"))
 
 # Set up persistent ChromaDB client (saves to disk in ./chroma_db)
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
@@ -34,7 +34,8 @@ def process_pdf(file_path: str, filename: str, doc_type: str = "general"):
         return {"chunks_stored": 0, "message": "No text extracted from PDF"}
 
     # Step 3: Embed each chunk
-    embeddings = embedding_model.encode(chunks).tolist()
+    result = voyage_client.embed(chunks, model="voyage-3.5", input_type="document")
+    embeddings = result.embeddings
 
     # Step 4: Store in ChromaDB
     ids = [str(uuid.uuid4()) for _ in chunks]
