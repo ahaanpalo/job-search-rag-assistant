@@ -1,4 +1,4 @@
-from sentence_transformers import SentenceTransformer
+import voyageai
 import chromadb
 import anthropic
 import os
