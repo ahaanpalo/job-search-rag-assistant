@@ -3,4 +3,6 @@
 chroma_db/
 __pycache__/
 uploaded_pdfs/
+frontend/node_modules/
+frontend/dist/
 *.pyc
