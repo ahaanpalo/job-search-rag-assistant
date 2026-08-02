@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Reuse the same embedding model and ChromaDB collection as ingestion.py
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+voyage_client = voyageai.Client(api_key=os.getenv("VOYAGE_API_KEY"))
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 collection = chroma_client.get_or_create_collection("job_search_docs", embedding_function=None)
 
@@ -19,7 +19,8 @@ def ask_question(question: str, doc_type_filter: str = None, top_k: int = 4):
     sends them to Claude, and returns an answer with sources.
     """
     # Step 1: Embed the question
-    query_embedding = embedding_model.encode([question]).tolist()
+    result = voyage_client.embed([question], model="voyage-3.5", input_type="query")
+    query_embedding = result.embeddings
 
     # Step 2: Search ChromaDB (optionally filtered by doc_type)
     query_args = {
