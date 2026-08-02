@@ -9,7 +9,7 @@ load_dotenv()
 # Reuse the same embedding model and ChromaDB collection as ingestion.py
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
-collection = chroma_client.get_or_create_collection("job_search_docs")
+collection = chroma_client.get_or_create_collection("job_search_docs", embedding_function=None)
 
 claude_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 

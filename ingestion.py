@@ -14,7 +14,7 @@ voyage_client = voyageai.Client(api_key=os.getenv("VOYAGE_API_KEY"))
 
 # Set up persistent ChromaDB client (saves to disk in ./chroma_db)
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
-collection = chroma_client.get_or_create_collection("job_search_docs")
+collection = chroma_client.get_or_create_collection("job_search_docs", embedding_function=None)
 
 # Text splitter config
 splitter = RecursiveCharacterTextSplitter(
