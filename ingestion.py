@@ -1,8 +1,13 @@
+import os
+
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import voyageai
 import chromadb
 import uuid
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Set up Voyage AI client for embeddings
 voyage_client = voyageai.Client(api_key=os.getenv("VOYAGE_API_KEY"))
