@@ -2,4 +2,5 @@
 .env
 chroma_db/
 __pycache__/
+uploaded_pdfs/
 *.pyc
