@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #F4F1EA;
+  background: #F9F8F6;
   color: #1F1E1D;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,14 +37,11 @@ body {
   color: #6B6862;
   font-size: 0.98rem;
   line-height: 1.5;
-  max-width: 38ch;
-  text-wrap: balance;
-  margin: 0 auto;
+  white-space: nowrap;
 }
 
 .card {
   background: #FCFBF8;
-  border: 1px solid #E8E4DA;
   border-radius: 12px;
   padding: 1.75rem;
   margin-bottom: 1.5rem;
