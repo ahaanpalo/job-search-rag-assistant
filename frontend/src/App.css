@@ -21,6 +21,7 @@ body {
 
 .header {
   margin-bottom: 3.5rem;
+  text-align: center;
 }
 
 .header h1 {
@@ -36,7 +37,9 @@ body {
   color: #6B6862;
   font-size: 0.98rem;
   line-height: 1.5;
-  max-width: 44ch;
+  max-width: 38ch;
+  text-wrap: balance;
+  margin: 0 auto;
 }
 
 .card {
