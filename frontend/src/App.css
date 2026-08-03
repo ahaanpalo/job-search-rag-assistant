@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,51 +7,52 @@
 }
 
 body {
-  background: #ffffff;
-  color: #1a1a1a;
+  background: #F4F1EA;
+  color: #1F1E1D;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .app {
-  max-width: 900px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 5rem 1.5rem 6rem;
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .header h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #dc2626;
-  margin-bottom: 0.5rem;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1F1E1D;
+  margin-bottom: 0.6rem;
 }
 
 .header p {
-  color: #6b7280;
-  font-size: 0.95rem;
+  color: #6B6862;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  max-width: 44ch;
 }
 
 .card {
-  background: #ffffff;
-  border: none;
-  border-radius: 16px;
+  background: #FCFBF8;
+  border: 1px solid #E8E4DA;
+  border-radius: 12px;
   padding: 1.75rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.07);
 }
 
 .card h2 {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
   margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #1a1a1a;
+  color: #1F1E1D;
 }
 
 .upload-row {
@@ -60,74 +63,89 @@ body {
 }
 
 input[type="file"] {
-  color: #4b5563;
+  color: #6B6862;
   font-size: 0.85rem;
+  flex: 1;
+  min-width: 160px;
 }
 
 input[type="file"]::file-selector-button {
-  background: #f3f4f6;
-  color: #1a1a1a;
+  background: #EEEAE1;
+  color: #1F1E1D;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.55rem 1rem;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.85rem;
-  margin-right: 0.75rem;
+  font-weight: 500;
+  margin-right: 0.85rem;
+  transition: background 0.15s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #E2DDD1;
 }
 
 button {
-  background: #dc2626;
-  color: white;
+  background: #D97757;
+  color: #FCFBF8;
   border: none;
-  padding: 0.6rem 1.4rem;
+  padding: 0.6rem 1.35rem;
   border-radius: 8px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.15s ease;
 }
 
-button:hover {
-  background: #b91c1c;
+button:hover:not(:disabled) {
+  background: #C4633F;
 }
 
 button:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .status {
   margin-top: 1rem;
   font-size: 0.85rem;
-  color: #6b7280;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  color: #6B6862;
 }
 
 .status.success {
-  color: #16a34a;
+  color: #1F1E1D;
 }
 
 .status.error {
-  color: #dc2626;
+  color: #B3492F;
 }
 
 .chat-window {
-  min-height: 240px;
+  min-height: 220px;
   max-height: 400px;
   overflow-y: auto;
   margin-bottom: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 1rem;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background: #E2DDD1;
+  border-radius: 10px;
 }
 
 .chat-empty {
-  color: #9ca3af;
+  color: #A19C90;
   font-size: 0.9rem;
   text-align: center;
-  margin-top: 4rem;
+  margin: auto;
+  padding: 2.5rem 0;
 }
 
 .message {
@@ -147,34 +165,32 @@ button:disabled {
 }
 
 .bubble {
-  padding: 0.65rem 1rem;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  padding: 0.7rem 1.05rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .message.user .bubble {
-  background: #dc2626;
-  color: white;
-  border-bottom-right-radius: 4px;
+  background: #EEEAE1;
+  color: #1F1E1D;
 }
 
 .message.assistant .bubble {
-  background: #f9fafb;
-  border: none;
-  color: #1a1a1a;
-  border-bottom-left-radius: 4px;
+  background: transparent;
+  border: 1px solid #E8E4DA;
+  color: #1F1E1D;
 }
 
 .sources {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #A19C90;
   margin-top: 0.35rem;
-  padding-left: 0.25rem;
+  padding: 0 0.3rem;
 }
 
 .thinking {
-  color: #9ca3af;
+  color: #A19C90;
   font-size: 0.85rem;
   font-style: italic;
   padding-left: 0.25rem;
@@ -187,47 +203,54 @@ button:disabled {
 
 .input-row input {
   flex: 1;
-  background: #f9fafb;
-  border: none;
-  color: #1a1a1a;
+  background: #FCFBF8;
+  border: 1px solid #E8E4DA;
+  color: #1F1E1D;
   padding: 0.65rem 1rem;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 0.9rem;
   outline: none;
+  transition: border-color 0.15s ease;
 }
 
 .input-row input:focus {
-  box-shadow: 0 0 0 2px #dc2626;
+  border-color: #D97757;
 }
 
 .input-row input::placeholder {
-  color: #9ca3af;
+  color: #A19C90;
 }
 
-/* Custom dropdown */
+/* Dropdown */
 .dropdown {
   position: relative;
-  min-width: 160px;
+  min-width: 150px;
 }
 
 .dropdown-trigger {
   width: 100%;
-  background: #f9fafb;
+  background: #EEEAE1;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1F1E1D;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
+  transition: background 0.15s ease;
 }
 
 .dropdown-trigger:hover {
-  background: #f3f4f6;
+  background: #E2DDD1;
+}
+
+.dropdown-trigger .arrow {
+  font-size: 0.7rem;
+  color: #A19C90;
 }
 
 .dropdown-menu {
@@ -235,29 +258,28 @@ button:disabled {
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  padding: 0.4rem;
+  background: #FCFBF8;
+  border: 1px solid #E8E4DA;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(31, 30, 29, 0.06);
+  padding: 0.35rem;
   z-index: 10;
-  overflow: hidden;
 }
 
 .dropdown-option {
   padding: 0.55rem 0.85rem;
-  font-size: 0.9rem;
-  font-weight: 450;
-  color: #1a1a1a;
-  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1F1E1D;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .dropdown-option:hover {
-  background: #fee2e2;
-  color: #dc2626;
+  background: #F4F1EA;
 }
 
 .dropdown-option.selected {
-  background: #dc2626;
-  color: white;
+  background: #D97757;
+  color: #FCFBF8;
 }
