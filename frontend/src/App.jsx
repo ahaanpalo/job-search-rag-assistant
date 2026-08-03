@@ -122,7 +122,7 @@ function App() {
 
       <div className="card">
         <h2>💬 Ask a Question</h2>
-        <div className="chat-window">
+        <div className={`chat-window ${messages.length === 0 ? 'empty' : ''}`}>
           {messages.length === 0 && (
             <div className="chat-empty">Upload a document, then ask a question about it</div>
           )}

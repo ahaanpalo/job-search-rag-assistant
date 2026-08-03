@@ -53,6 +53,9 @@ body {
   font-weight: 600;
   margin-bottom: 1.25rem;
   color: #1F1E1D;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .upload-row {
@@ -122,13 +125,21 @@ button:disabled {
 }
 
 .chat-window {
-  min-height: 220px;
   max-height: 400px;
   overflow-y: auto;
   margin-bottom: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  transition: min-height 0.2s ease;
+}
+
+.chat-window.empty {
+  min-height: 0;
+}
+
+.chat-window:not(.empty) {
+  min-height: 120px;
 }
 
 .chat-window::-webkit-scrollbar {
@@ -144,8 +155,7 @@ button:disabled {
   color: #A19C90;
   font-size: 0.9rem;
   text-align: center;
-  margin: auto;
-  padding: 2.5rem 0;
+  padding: 0.5rem 0 1.25rem;
 }
 
 .message {
