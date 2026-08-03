@@ -68,7 +68,7 @@ function App() {
     try {
       const res = await fetch(`${API_BASE}/upload`, { method: 'POST', body: formData })
       const data = await res.json()
-      setUploadStatus({ type: 'success', text: `${data.filename} — ${data.chunks_stored} chunks stored` })
+      setUploadStatus({ type: 'success', text: `${data.filename} uploaded successfully` })
     } catch (err) {
       setUploadStatus({ type: 'error', text: 'Upload failed. Check backend is running.' })
     } finally {
