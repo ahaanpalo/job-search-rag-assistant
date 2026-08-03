@@ -101,7 +101,7 @@ function App() {
     <div className="app">
       <div className="header">
         <h1>Job Search Assistant</h1>
-        <p>Upload your documents and ask questions, grounded in your own files</p>
+        <p>Upload your documents and get answers grounded in your own files</p>
       </div>
 
       <div className="card">
@@ -124,7 +124,7 @@ function App() {
         <h2>💬 Ask a Question</h2>
         <div className={`chat-window ${messages.length === 0 ? 'empty' : ''}`}>
           {messages.length === 0 && (
-            <div className="chat-empty">Upload a document, then ask a question about it</div>
+            <div className="chat-empty">Upload a document to get started</div>
           )}
           {messages.map((msg, i) => (
             <div key={i} className={`message ${msg.role}`}>
@@ -142,7 +142,7 @@ function App() {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleAsk()}
-            placeholder="Ask something about your uploaded documents..."
+            placeholder="Ask a question about your documents..."
           />
           <button onClick={handleAsk} disabled={loading || !question.trim()}>Ask</button>
         </div>
