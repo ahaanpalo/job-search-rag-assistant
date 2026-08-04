@@ -11,6 +11,7 @@ body {
   color: #1F1E1D;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .app {
@@ -305,6 +306,7 @@ button:disabled {
 
   .header p {
     font-size: 0.9rem;
+    white-space: normal;
   }
 
   .card {
