@@ -44,7 +44,7 @@ body {
 .card {
   background: #FCFBF8;
   border-radius: 12px;
-  padding: 1.75rem;
+  padding: 2.25rem;
   margin-bottom: 1.5rem;
 }
 
@@ -115,6 +115,7 @@ button:disabled {
   margin-top: 1rem;
   font-size: 0.85rem;
   color: #6B6862;
+  text-align: left;
 }
 
 .status.success {
@@ -341,4 +342,16 @@ button:disabled {
   .message {
     max-width: 92%;
   }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.icon-inline {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
 }
