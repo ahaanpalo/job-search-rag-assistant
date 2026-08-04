@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import documentIcon from './assets/icons/document.png'
+import questionIcon from './assets/icons/question.png'
+import checkIcon from './assets/icons/check-button.png'
+import crossIcon from './assets/icons/cross.png'
 
 const API_BASE = 'https://job-search-rag-backend.onrender.com'
 
@@ -105,7 +109,7 @@ function App() {
       </div>
 
       <div className="card">
-        <h2>📄 Upload a Document</h2>
+        <h2><img src={documentIcon} alt="" className="icon" /> Upload a Document</h2>
         <div className="upload-row">
           <input type="file" accept=".pdf" onChange={(e) => setFile(e.target.files[0])} />
           <Dropdown value={docType} onChange={setDocType} />
@@ -115,13 +119,17 @@ function App() {
         </div>
         {uploadStatus && (
           <div className={`status ${uploadStatus.type}`}>
-            {uploadStatus.type === 'success' ? '✅' : '❌'} {uploadStatus.text}
+            <img
+              src={uploadStatus.type === 'success' ? checkIcon : crossIcon}
+              alt=""
+              className="icon-inline"
+            /> {uploadStatus.text}
           </div>
         )}
       </div>
 
       <div className="card">
-        <h2>💬 Ask a Question</h2>
+        <h2><img src={questionIcon} alt="" className="icon" /> Ask a Question</h2>
         <div className={`chat-window ${messages.length === 0 ? 'empty' : ''}`}>
           {messages.length === 0 && (
             <div className="chat-empty">Upload a document to get started</div>
